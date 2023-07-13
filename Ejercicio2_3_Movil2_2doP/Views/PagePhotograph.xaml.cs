@@ -59,6 +59,12 @@ namespace Ejercicio2_3_Movil2_2doP.Views
 
         private async void btnGuardar_Clicked(object sender, EventArgs e)
         {
+            if (string.IsNullOrWhiteSpace(descripcion.Text) || imgFoto.Source?.ToString() == originalImagePath)
+            {
+                await DisplayAlert("Aviso", "Por favor, complete todos los campos", "Ok");
+                return;
+            }
+
             var photograp = new Models.Photograph
             {
                 Image = GetImageBytes(),
@@ -73,9 +79,10 @@ namespace Ejercicio2_3_Movil2_2doP.Views
             }
             else
             {
-                await DisplayAlert("Aviso", "Nose ha podido guardar", "Ok");
+                await DisplayAlert("Aviso", "No se ha podido guardar", "Ok");
             }
         }
+
 
         private void LimpiarCampos()
         {
