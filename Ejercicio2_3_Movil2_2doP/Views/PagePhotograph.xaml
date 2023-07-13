@@ -9,8 +9,13 @@
 
     <ContentPage.Content>
         <StackLayout Padding="20" VerticalOptions="CenterAndExpand">
+            <Label Text="CLICK PARA TOMAR FOTO"
+                TextColor="#01A3FF"
+                HorizontalOptions="Center"
+                FontSize="24"/>
+            
             <Image x:Name="imgFoto"
-               Source="./Photo.png"
+               Source="Photo.png"
                Aspect="AspectFit"
                HorizontalOptions="Center" 
                WidthRequest="300"

@@ -66,11 +66,18 @@ namespace Ejercicio2_3_Movil2_2doP.Views
             if(await App.Instancia.AddPhoto(photograp) > 0)
             {
                 await DisplayAlert("Aviso", "Foto Agregada Correctamente", "Ok");
+                LimpiarCampos();
             }
             else
             {
                 await DisplayAlert("Aviso", "Nose ha podido guardar", "Ok");
             }
+        }
+
+        private void LimpiarCampos()
+        {
+            descripcion.Text = string.Empty;
+            imgFoto.Source = null;
         }
 
         private async void TapGestureRecognizer_Tapped(object sender, EventArgs e)
