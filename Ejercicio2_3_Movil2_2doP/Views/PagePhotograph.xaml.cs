@@ -15,10 +15,12 @@ namespace Ejercicio2_3_Movil2_2doP.Views
     public partial class PagePhotograph : ContentPage
     {
         Plugin.Media.Abstractions.MediaFile photo = null;
-
+        private string originalImagePath;
         public PagePhotograph()
         {
             InitializeComponent();
+            originalImagePath = "Photo.png"; // Establece la ruta de la imagen original aquí
+            imgFoto.Source = originalImagePath; // Asigna la imagen original al cargar la página
         }
 
         public String Getimage64()
@@ -63,10 +65,11 @@ namespace Ejercicio2_3_Movil2_2doP.Views
                 Description = descripcion.Text
             };
 
-            if(await App.Instancia.AddPhoto(photograp) > 0)
+            if (await App.Instancia.AddPhoto(photograp) > 0)
             {
                 await DisplayAlert("Aviso", "Foto Agregada Correctamente", "Ok");
                 LimpiarCampos();
+                imgFoto.Source = originalImagePath; // Restablece la imagen original
             }
             else
             {
