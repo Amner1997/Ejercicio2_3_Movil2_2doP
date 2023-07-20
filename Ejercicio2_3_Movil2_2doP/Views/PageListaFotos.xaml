@@ -29,6 +29,7 @@
                 </DataTemplate>
             </CollectionView.ItemTemplate>
         </CollectionView>
+        
     </ContentPage.Content>
 
 </ContentPage>
